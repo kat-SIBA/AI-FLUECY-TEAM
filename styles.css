@@ -1,9 +1,14 @@
+@import url("https://use.fontawesome.com/releases/v6.4.2/css/all.css");
 @import url('https://fonts.googleapis.com/css2?family=Ovo&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 /*universal styles*/
 a{
-    color: #606c38;
+    color: #bc6c25;
     cursor: pointer;
     text-decoration: none;
+}
+a:hover{
+    color: #606c38;
+    text-decoration: underline;
 }
 button{
     background: #606c38;
@@ -30,5 +35,70 @@ body{
 /*end body*/
 /*end universal styles*/
 /*form*/
-
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+.login-container {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px 0 30px;
+}
+.login-container span {
+  color: #bc6c25;
+  display: flex;
+  font-size: 30px;
+  font-family: "ovo", serif;
+  font-weight: 700;
+  justify-content: center;
+  padding: 10px 0 10px 0;
+}
+header {
+  color: #fefae0;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 10px 0;
+}
+.login-container i {
+  position: relative;
+  top: -34px;
+  left: 17px;
+  color: #bc6c25;
+}
+.login-container .input-field {
+  display: flex;
+  flex-direction: column;
+}
+.login-container .input {
+  height: 45px;
+  width: 87%;
+  border: 2px solid #fefae0;
+  outline: none;
+  border-radius: 30px;
+  color: black;
+  padding: 0 0 0 45px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.login-container .submit {
+    border: none;
+  border-radius: 30px;
+  color: #fefae0;
+  cursor: pointer;
+  font-family: "ovo", serif;
+  font-size: 20px;
+  height: 45px;
+  outline: none;
+  margin-left: 55px;
+  width: 60%;
+  background: #606c38;
+  transition: 0.3s;
+}
+.bottom {
+  display: flex;
+  margin-top: 10px;
+}
 /*end form*/
