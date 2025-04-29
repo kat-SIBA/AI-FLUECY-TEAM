@@ -33,17 +33,22 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="css/index.css">
-        <title>Hello World</title>
+        <link rel="stylesheet" href="/MyApp/www/css/login.css">
+        <title></title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+>
+        <div class="card" id="auth-card">
+          <h2 id="form-title">Login</h2>
+          <input type="email" id="email" placeholder="Email" />
+          <input type="password" id="password" placeholder="Password" />
+          <button onclick="handleAuth()">Login</button>
+          <p>
+            <span id="toggle-text">Don't have an account?</span>
+            <a onclick="toggleMode()">Sign up</a>
+          </p>
         </div>
+
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
     </body>
