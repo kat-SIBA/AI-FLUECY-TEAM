@@ -1,0 +1,12 @@
+{
+  "name": "ai-fluecy-team",
+  "version": "1.0.0",
+  "description": "To empower individuals recovering from addiction by connecting them with employment opportunities and providing tools to track their sobriety journey.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
