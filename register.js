@@ -12,22 +12,26 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
   const app = initializeApp(firebaseConfig);
 
   // Import and initialize Firebase Authentication
-  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-  const auth = getAuth(app);
+  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+const auth = getAuth(app);
+
 // submit button
-const logIn = document.getElementById("logIn");
-logIn.addEventListener("click", function (event) {
+const createAccount = document.getElementById("createAccount");
+createAccount.addEventListener("click", function (event) {
   event.preventDefault();
 
   // inputs
-  const emailLink = document.getElementById("emailLink")?.value || "";
-  const passwordLink = document.getElementById("passwordLink")?.value || "";
+  const fullName = document.getElementById("fullName").value;
+  const emailLink = document.getElementById("emailLink").value;
+  const phoneNumber = document.getElementById("phoneNumber").value;
+  const username = document.getElementById("username").value;
+  const passwordLink = document.getElementById("passwordLink").value;
 
-  signInWithEmailAndPassword(auth, emailLink, passwordLink)
+  createUserWithEmailAndPassword(auth, emailLink, passwordLink)
     .then((userCredential) => {
-      // Signed in
+      // Signed up
       const user = userCredential.user;
-      alert("Logging in...");
+      alert("Creating Account...");
       window.location.href = "index.html";
       // ...
     })
@@ -36,5 +40,5 @@ logIn.addEventListener("click", function (event) {
       const errorMessage = error.message;
       alert(errorMessage);
       // ..
-        });
     });
+});
