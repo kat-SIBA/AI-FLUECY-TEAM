@@ -13,7 +13,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
 
   // Import and initialize Firebase Authentication
   import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-const auth = getAuth(app);
+  const auth = getAuth(app);
 
 // submit button
 const createAccount = document.getElementById("createAccount");
@@ -30,9 +30,20 @@ createAccount.addEventListener("click", function (event) {
   createUserWithEmailAndPassword(auth, emailLink, passwordLink)
     .then((userCredential) => {
       // Signed up
-      const user = userCredential.user;
-      alert("Creating Account...");
-      window.location.href = "index.html";
+        const user = userCredential.user;
+        setDoc(doc(db, "users", user.uid), {
+            fullName: fullNamee,
+            phoneNumber: phoneNumber,
+            username: username,
+            emailLink: emailLink
+        })
+            .then(() => {
+                alert("Creating Account...");
+                window.location.href = "index.html";
+            })
+            .catch((error) => {
+                console.error("Error storing user data. Please try again later")
+            });
       // ...
     })
     .catch((error) => {
