@@ -42,17 +42,17 @@
   };
 
     const userName = document.getElementById('userName');
-    const progress = document.getElementById('progress');
+    const progress = document.getElementById('progress'); 
     const progressText = document.getElementById('progress-text');
     const completedDays = document.getElementById('completedDays');
     const tasksList = document.getElementById('tasksList');
     const logoutButton = document.getElementById('logout');
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     import { getAuth } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
+    import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';
+    import { getDocs, collection } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';
+    
     const auth = getAuth(app);
     const db = getFirestore(app);
 
@@ -65,7 +65,7 @@
 
             userName.innerText = userData.name;
             const completedTasks = userData.completedTasks || 0;
-            const totalTasks = 75; // Total tasks for the 75-day program
+            const totalTasks = 75;
             const progressPercentage = (completedTasks / totalTasks) * 100;
             progress.style.width = `${progressPercentage}%`;
             progressText.innerText = `You have completed ${completedTasks} out of ${totalTasks} days.`;
