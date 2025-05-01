@@ -26,13 +26,39 @@ button{
 li{
     list-style: none;
 }
-/*Body*/
+h3{
+    font-family: "ovo", serif;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+}
+h4{
+    font-family: "ovo", serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+header {
+  background: #bc6c25;
+  color: #fefae0;
+  display: flex;
+  flex-direction: row;
+  font-family: "ovo", serif;
+  justify-content: space-evenly;
+  padding: 1rem 0;
+}
 body{
     background: #dda15e;
     color: #fefae0;
     font-family: "roboto", sans-serif;
 }
-/*end body*/
+footer {
+  background: #bc6c25;
+  color: #eff1f4;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
 /*end universal styles*/
 /*form*/
 .box {
@@ -102,3 +128,40 @@ header {
   margin-top: 10px;
 }
 /*end form*/
+/*landing page*/
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/hero.jpg') no-repeat center center/cover;
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+}
+.features {
+  padding: 3rem 0;
+}
+
+.feature-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.feature-box {
+  flex: 1 1 30%;
+  background: #bc6c25;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.cta-section {
+  background: #dda15e;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+}
+/*end landing page*/
