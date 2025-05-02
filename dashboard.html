@@ -17,12 +17,23 @@
         <button id="logout">
             <a href="login.html"><span><i class="fa-solid fa-sign-out"></i></span></a>
         </button>
-    </div>
+
+        <div id="chatContainer">
+            <h2>Recovery Support Chatbot</h2>
+            <div id="chatMessages">
+              <p><strong>RecoveryBot:</strong> Hello! I'm here to support you on your journey. How are you feeling today?</p>
+            </div>
+            <input type="text" id="userInput" placeholder="Type your message here..." />
+            <button id="sendBtn">Send</button>
+          </div>
+
     <div class="progress">
         <h2>Your Progress</h2>
         <div class="progress-bar">
             <div class="progress" id="progress"></div>
         </div>
+     </div>
+
         <p id="progress-text">You have completed <span id="completedDays">0</span> out of 75 days.</p>
     </div> 
     <div class="tasks">
@@ -32,7 +43,7 @@
 </section>
 <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
 <script src="api.js"></script>
-<script src="bot.js"></script>
+<script type="module" defer src="chatbot.js"></script>
 </body>
 <script type="module" defer>
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -84,7 +95,7 @@
             });
         } else {
             window.location.href = "login.html";
-            console.log("User logged out");
+            console.vlog("User logged out");
         }
     });
 
@@ -96,5 +107,7 @@
             console.error("Error logging out", error)
         });
     });
+
+
 </script>
 </html>
