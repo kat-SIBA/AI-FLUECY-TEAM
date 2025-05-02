@@ -10,6 +10,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
 
   const app = initializeApp(firebaseConfig);
 
+  // Import and initialize Firestore
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+  const db = getFirestore(app);
+
   // Import and initialize Firebase Authentication
   import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
   const auth = getAuth(app);
