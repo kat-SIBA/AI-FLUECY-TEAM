@@ -26,6 +26,15 @@ button{
 li{
     list-style: none;
 }
+
+h2{
+    color: #bc6c25;
+    font-family: "ovo", serif;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    width: 230px;
+}
 h3{
     font-family: "ovo", serif;
     font-size: 45px;
@@ -165,3 +174,36 @@ header {
   padding: 2rem 0;
 }
 /*end landing page*/
+/*tasks*/
+.task{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+.task h1{
+  color: red;
+  font-size: 30px;
+  text-align: center;
+}
+.task p{
+  color: #606c38;
+  font-family: "roboto", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+.task a{
+  font-family: "ovo", serif;
+  font-size:22px;
+  font-weight: 600;
+}
+.task-section{
+  background: #fefae0;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+.tools{
+  line-height: 1.5;
+}
+/*end tasks*/
