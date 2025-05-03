@@ -36,14 +36,20 @@
         <div id="log-entries"></div>
     </div>
 
-        <div id="chatContainer">
-            <h2>Recovery Support Chatbot</h2>
-            <div id="chatMessages">
-              <p><strong>RecoveryBot:</strong> Hello! I'm here to support you on your journey. How are you feeling today?</p>
-            </div>
-            <input type="text" id="userInput" placeholder="Type your message here..." />
-            <button id="sendBtn">Send</button>
-          </div>
+    <div id="chatPopup" class="hidden">
+        <div id="chatHeader">
+          <span >AI Sponsor</span>
+          <button id="closeChatBtn">✖</button>
+        </div>
+        <div class="chat-body" id="chatMessages">
+          <p><strong>AI Sponsor:</strong> Hi, I'm here to support you. How are you feeling today?</p>
+        </div>
+        <input type="text" id="userinput" placeholder="Type your message..." />
+        <button id="sendBtn">Send</button>
+      </div>
+      
+      <button id="openChatBtn">💬 Chat</button>
+
 
     <div class="progress">
         <h2>Your Progress</h2>
@@ -61,7 +67,7 @@
 </section>
 <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
 <script src="api.js"></script>
-<script type="module" defer src="chatbot.js"></script>
+<script type="module"  src="chatbot.js" defer></script>
 </body>
 <script type="module" defer>
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -102,7 +108,7 @@
         if (!userId) {
           console.error("User ID is undefined or null.");
           return;
-        }
+       
         const userDocRef = doc(db, 'users', userId);
         const userDocSnap = await getDoc(userDocRef);
         const userData = userDocSnap.data();
@@ -125,7 +131,8 @@
         } else {
             window.location.href = "login.html";
             console.log("User logged out");
-        }
+        } 
+     } 
     });
 
     logoutButton.addEventListener('click', () =>{
@@ -159,5 +166,6 @@
             }
         })
     });
+
 </script>
 </html>
