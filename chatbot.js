@@ -1,4 +1,3 @@
-
 // const { default: axios } = require("axios");
 const endpoint = "https://ai-jansibanyoni19249ai511706430474.openai.azure.com/";
 const deploymentName = "gpt-4"; 
