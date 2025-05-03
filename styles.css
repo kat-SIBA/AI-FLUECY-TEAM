@@ -182,8 +182,8 @@ header {
   gap: 20px;
 }
 .task h1{
-  color: red;
-  font-size: 30px;
+  font-family: "ovo", serif;
+  font-size: 45px;
   text-align: center;
 }
 .task p{
