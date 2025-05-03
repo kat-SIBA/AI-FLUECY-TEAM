@@ -18,19 +18,23 @@
         <button id="logout">
             <a href="login.html"><span><i class="fa-solid fa-sign-out"></i></span></a>
         </button>
-        <button>
-          <a href="profile.html"><span><i class="fa-solid fa-user"></i></span></a>
-        </button>
-        <button>
-          <a href="courses.html"><span><i class="fa-solid fa-book"></i></span></a>
-        </button>
-      </div>
-    </div>
+
+        <div id="chatContainer">
+            <h2>Recovery Support Chatbot</h2>
+            <div id="chatMessages">
+              <p><strong>RecoveryBot:</strong> Hello! I'm here to support you on your journey. How are you feeling today?</p>
+            </div>
+            <input type="text" id="userInput" placeholder="Type your message here..." />
+            <button id="sendBtn">Send</button>
+          </div>
+
     <div class="progress">
         <h2>Your Progress</h2>
         <div class="progress-bar">
             <div class="progress" id="progress"></div>
         </div>
+     </div>
+
         <p id="progress-text">You have completed <span id="completedDays">0</span> out of 75 days.</p>
     </div> 
     <div class="tasks">
@@ -40,7 +44,7 @@
 </section>
 <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
 <script src="api.js"></script>
-<script src="bot.js"></script>
+<script type="module" defer src="chatbot.js"></script>
 </body>
 <script type="module" defer>
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -94,32 +98,26 @@
         progressText.innerText = `You have completed ${completedTasks} out of ${totalTasks} days.`;
         completedDays.innerText = completedTasks;
 
-        const tasksColRef = collection(db, 'users', userId, 'tasks');
-        const taskSnapshot = await getDocs(tasksColRef);
-        taskSnapshot.forEach(taskDoc => {
-          const listItem = document.createElement('li');
-          listItem.textContent = taskDoc.data().taskName;
-          tasksList.appendChild(listItem);
+            db.collection('users').doc(user.uid).collection('tasks').get().then(snapshot =>{
+                snapshot.forEach(taskDoc =>{
+                    const listItem = document.createElement('li');
+                    listItem.textContent = taskDoc.data().taskName;
+                    taskList.appendChild(listItem);
+                });
+            });
+        } else {
+            window.location.href = "login.html";
+            console.log("User logged out");
+        }
+    });
+
+    logoutButton.addEventListener('click', () =>{
+        auth.signOut().then(() => {
+            console.log("User logged Out"),
+            window.location.href = "login.html";
+        }) .catch(error => {
+            console.error("Error logging out", error)
         });
-      } catch (error) {
-        console.error("Error loading user data:", error);
-      }
-
-    } else {
-      window.location.href = "login.html";
-    }
-  });
-
-  logoutButton.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    signOut(auth)
-      .then(() => {
-        console.log("User logged out");
-        window.location.href = "login.html";
-      })
-      .catch((error) => {
-        console.error("Logout error:", error);
-      });
-  });
+    });
 </script>
 </html>
