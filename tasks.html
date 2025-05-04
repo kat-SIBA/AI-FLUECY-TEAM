@@ -7,9 +7,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    
     <header>
         <h1>Recovery Journey</h1>
     </header>
+      <div class="course-form">
+    <label for="interests">Select Your Interests</label>
+    <select name="" id="interests">
+        <option value="" disabled selected=>-- Choose an interest --</option>
+        <option value="technology">Technology</option>
+        <option value="business">Business</option>
+        <option value="health">Health & Wellness</option>
+        <option value="creative-arts"> Creative Arts</option>
+    </select>
+    <label for="skills">Select your skills</label>
+    
+    <select name="" id="skills">
+        <option  disabled selected>-- Choose a skill --</option>
+        <option value="coding">Coding</option>
+        <option value="writing">Writing</option>
+        <option value="marketing">Marketing</option>
+        <option value="design">Design</option>
+    </select>
+    <button onclick="fetchCourse()">Get Recommend Courses</button>
+</div>
+<ul id="courseResults"><span>Recommend Courses</span></ul>
+ 
+
     <section class="task">
         <h1>Growth Tasks</h1>
         <div class="task-section" id="education">
@@ -32,5 +57,8 @@
             <li><a href="">Microsoft Word</a></li>
     </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="course.js"></script>
+
 </body>
 </html>

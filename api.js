@@ -43,8 +43,10 @@ async function callAzureOpenAI(userId, storageKey) {
     );
 
     const message = response.data.choices[0].message.content.trim();
+
     document.getElementById("motivatinalMessage").innerText = message;
     localStorage.setItem(storageKey, message);
+
     console.log("💬 Message fetched and stored");
   } catch (error) {
     if (error.response) {

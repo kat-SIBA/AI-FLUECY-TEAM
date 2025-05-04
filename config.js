@@ -1,4 +1,4 @@
-exportconst firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyAGaZKB4VAmQRV-wsJanZhEmTz5QNLBfD0",
   authDomain: "ai-fluency-1cd86.firebaseapp.com",
   projectId: "ai-fluency-1cd86",

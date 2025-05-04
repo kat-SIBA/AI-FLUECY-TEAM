@@ -43,6 +43,8 @@
         const userData = userDocSnap.data();
 
         userName.innerText = userData.fullName || "";
+
+        
         const completedTasks = userData.completedTasks || 0;
         const totalTasks = 75;
         const progressPercentage = (completedTasks / totalTasks) * 100;
@@ -60,7 +62,7 @@
         }catch (error) {
           console.error("Error fetching user data:", error);
         }
-
+    
     logoutButton.addEventListener('click', () =>{
         auth.signOut().then(() => {
             console.log("User logged Out"),
@@ -69,7 +71,9 @@
             console.error("Error logging out", error)
         });
     });
-
+    }
+  });
+  
     let currentUser;
 
     onAuthStateChanged(auth, user => {
@@ -79,7 +83,7 @@
         }
     });
 
-    async function loadMoodLog(uid) {
+    async function loadMoodLog(uid){
         const moodRef = collection(db, 'users', uid, 'moods');
         const logContainer = document.getElementById('log-entries');
         logContainer.innerHTML = '';
@@ -90,5 +94,6 @@
             div.classList.add('entry');
             div.textContent = `${entry.mood} - ${entry.timestamp?.toDate().toLocaleString() || 'Just now'}`;
             logContainer.appendChild(div);
+        
         });
     }
